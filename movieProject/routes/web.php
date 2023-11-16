@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 //Routes in Movie
 Route::get('/movie', [MovieController::class,"index"])->name('movie.index');
+Route::get('/movie.data', [MovieController::class,"show"])->name("show");
 Route::post('/movie.update', [MovieController::class,'update'])->name('movie.update');
 Route::post('/movie.edit', [MovieController::class,'edit'])->name('movie.edit');
 Route::delete('/movie.delte', [MovieController::class,'delete'])->name('movie.delete');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Contracts\DataTable;
 
 class MovieController extends Controller
 {
@@ -14,7 +15,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movie = Movie::all();
+        $movie = Movie::all(); //dd($movie);       
+        
         return view("movie", compact("movie"));
     }
 
@@ -34,9 +36,11 @@ class MovieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        $movie = Movie::$request->all();
+        $movie = Movie::find($id);
+        $movie = $request->all();
+        Movie::save( $movie );
         return response()->json($movie);
     }
 
@@ -46,9 +50,10 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $movie = Movie::all();
+        return response()->json($movie);
     }
 
     /**
