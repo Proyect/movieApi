@@ -15,14 +15,14 @@
 
 </tbody>
 <tfoot>
-</tfoot>
     <tr>
         <th> ID </th>
         <th> Title </th>
         <th> Year </th>
         <th> Genre </th>
         <th> OP </th>
-    </tr>    
+    </tr> 
+</tfoot>   
 </table>   
 <script>
     
@@ -32,7 +32,7 @@
             console.log(data);
             for (const movie of data){
                 $("tbody").append(
-                    '<tr><td>'+movie.id+'</td><td>'+movie.title+'</td><td>'+movie.year+'</td><td>'+movie.genre+'</td><td>'+movie.id+'</td></tr>'
+                    '<tr><td>'+movie.id+'</td><td>'+movie.title+'</td><td>'+movie.year+'</td><td>'+movie.genre+'</td><td><p data-op=update data.id='+movie.id+'>Update</p><p data-op=delete data.id='+movie.id+'>Delete</p> </td></tr>'
                 );
             }
             dataMovie = data;
